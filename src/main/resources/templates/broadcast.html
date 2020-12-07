@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Create Broadcast</title>
+
+    
+    
+     <!-- Bootstrap link -->
+     
+    <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+     
+    <link href="./css/all.css" rel="stylesheet">
+    <!-- <link href="../static/css/all.css" rel="stylesheet"> -->
+    
+
+    <link rel="stylesheet" href="./css/sb-admin-2.css">
+    <!-- <link rel="stylesheet" href="../static/css/sb-admin-2.css"> -->
+    
+    <link href="./css/healthBoard.css" rel="stylesheet">
+    <!-- <link href="../static/css/healthBoard.css" rel="stylesheet"> -->
+    
+    <link href="./css/topbar_sidebar.css" rel="stylesheet">
+    <!-- <link href="../static/css/topbar_sidebar.css" rel="stylesheet"> -->
+    
+    <link href="./css//header.css">
+    <!-- <link href="../static/css//header.css"> -->
+    
+    <link href="./css/login.css" rel="stylesheet">
+    <!-- <link href="../static/css/login.css" rel="stylesheet"> -->
+    
+    <link href="./css/opensans-fonts.css" rel="stylesheet">
+    <!-- <link href="../static/css/opensans-fonts.css" rel="stylesheet"> -->
+    
+
+    <script src="./js/jquery.min.js"></script>
+    <!-- <script src="../static/js/jquery.min.js"></script> -->
+    
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+    
+    <script src="./js/all.js"></script>
+    <!-- <script src="../static/js/all.js"></script> -->
+   
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" /> -->
+
+
+     
+     
+     
+     <!-- <script src="./js/popper.min.js"></script> -->
+
+</head>
+
+<body id="page-top">
+    <!-- broadcast create with blured background -->
+    <div class="whole-page-blur" id="backdrop" style="display:none">
+        
+            <div class="container">
+    
+                <!-- Outer Row -->
+                <div class="row justify-content-center pt-5">
+            
+                  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            
+                    <div class="card o-hidden border-0 shadow-lg my-5 card-margin h-auto">
+                      <div class="card-body p-0 form-container">
+                        <!-- Nested Row within Card Body -->
+                        
+                        <div class="row pb-3">
+                          <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 ">
+                            <div class="row w-100">
+                                <div class="col-md-2 pt-3 offset-10">
+                                    <button type="button" class="close" aria-label="Close" onClick="hideBackDrop()">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                            </div>
+                            <div class="p-3 pl-5">
+                               
+                          
+                              <div class="control-center mb-3">
+                                <h5>Broadcast</h5>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                    <div class="label-whole">
+                                        <p>Group Name </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="label-whole">
+                                        :
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user  border-bottom-input form-input" aria-describedby="emailHelp" placeholder="Group Name" id="groupNameInput">
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3">
+                                    <div class="label-whole mt-5">
+                                        <p>Group Member</p>       
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="label-whole mt-5">
+                                        :
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3 mt-sm-0">
+                                    <div class="form-group mt-5">
+                                            
+
+                                                                     
+                                        <select class="form-control form-control-user  border-bottom-input form-input" id="groupMemberSelect" multiple searchable>
+                                           <!-- <option value="" disabled selected></option> -->
+                                           <option value="Swathin R">Swathin R</option>
+                                           <option value="Siva V">Siva V</option>
+                                           <option value="Syed M. Abbas">Syed M. Abbas</option>
+                                           <option value="Umair">Umair</option>
+                                          
+                                         </select>
+                                       
+                                </div>
+
+                                </div>
+                              </div>
+                             
+                                <div class="row mt-5">
+                                    <div class="col-md-4 col-sm-1">
+
+                                    </div>
+                                    <div class="col-md-8 col-sm-12 d-flex">
+                                        <button class="button-primary w-50" onClick="createGroup()">
+                                            Create
+                                        </button>
+                                        <button class="button-secondary ml-3 w-50" onClick="hideBackDrop()">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>                       
+                              
+                            </div>
+                           
+                          </div>
+                         
+                        </div>
+                        <!-- </div> -->
+                      </div>
+                      
+                    </div>
+                   
+                  </div>
+                  
+                </div>
+                
+            </div>
+            
+    </div>
+    <!-- backdrop ends here -->
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion dashsidebar bgsidebar" id="accordionSidebar">
+            <li class="nav-item">
+                <div class="nav-first-item">
+                    <p class="text-center bg-blue">COVID TRACKER</p>
+                </div>
+            </li> 
+                        <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link " href="healthBoard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Health Board</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="./dashboard">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Manage Associates</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link sidebarlinkactive" href="#">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Create Broadcast</span></a>
+            </li>
+
+            <li class="nav-item active">
+                 <a class="nav-link" href="./viewTracingInfo">
+                    <i class="fas fa-cube"></i>
+                    <span>View Tracking Info</span></a>
+            </li>
+
+           
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column bgcontent">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <!-- select project -->
+                   
+                       <!-- Button for toggling sidebar -->
+                       <span id="ToggleSideMenu">
+                        <i class="fa fa-bars"></i>
+                       </span>
+                    
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item -->
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-search"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-crosshairs"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                          <i class="far fa-bell"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="far fa-user"></i>
+                        </li>
+                        <li class="nav-item mr-3" >
+                            <span class="small-txt">Hi, John</span>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+               
+                <div class="container-fluid container-pos">
+
+                    <!-- Page Heading -->
+                    
+
+                    <!-- Content Row -->
+                    <div class="container-nested">
+                        <div class="cardBox">
+                            <!-- new script body -->
+                            
+                            <form id="broadCastForm">
+                            <div class="createScriptTiles w-100 bg-white p-4 d-block">
+                                <h3>Broadcast Message</h3>
+                                <p>Broadcast the Covid 19 Alert message throughout the organisation</p>
+                               <div class="row pt-3 ">
+                                   
+                                    <div class="col-md-3 ">
+                                        <div class="label-whole ">
+                                            Message Title       
+                                        </div>
+                                        <div class="label-whole mt-5">
+                                                Message Body       
+                                            </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-1">
+                                        <div class="label-whole">
+                                            :
+                                        </div>
+                                        <div class="label-whole mt-5">
+                                                :
+                                            </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user  border-bottom-input form-input" id="broadCastTitle" aria-describedby="emailHelp" placeholder="Title" required>
+                                        </div>
+                                        <div class="form-group mt-5">
+                                                <textarea class="form-control form-control-user  border-bottom-input form-input" rows="5" id="broadCastMessage" placeholder="Content, Max of 255 characters"></textarea>
+
+                                        </div>
+                                        <h4>Broadcast messages to</h4>
+                                        <div id="myRadioGroup">
+                                              
+                                                      <!-- <label class="container-radio">Three
+                                                        <input type="radio" name="casts"  value="4" checked="checked">
+                                                        <span class="checkmark"></span>
+                                                      </label>
+                                                      <label class="container-radio">Four
+                                                        <input type="radio" name="casts"  value="1">
+                                                        <span class="checkmark"></span>
+                                                      </label> -->
+                                                      <label class="container-radio">Manually selected List
+                                                            <input type="radio" name="casts"  value="2">
+                                                            <span class="checkmark"></span>
+                                                          </label>
+                                                          <div id="Radios2" class="desc">
+                                                                <div class="form-group w-100 d-block">
+                                                                    <select class="form-control form-control-user  border-bottom-input form-input" id="selectManual" multiple>
+                                                                        <!-- <option value="" disabled selected></option> -->
+                                                                        <option value="aamir.shahzad@royalcyber.com">Aamir Shehzad</option>
+                                                                        <option value="aamir.aleem@royalcyber.com">Aamir Aleem</option>
+                                                                        <option value="muhammad.abbas@royalcyber.com">Syed Abbas</option>
+                                                                        <option value="swathin@royalcyber.com">Swathin R</option>
+                                                                        
+                                                                      </select>
+                                                                        <!-- <input type="text" class="form-control form-control-user  border-bottom-input form-input" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Title"> -->
+                                                                    </div>
+                                                            </div>
+                                                          <label class="container-radio">Group
+                                                            <input type="radio" name="casts" value="3" >
+                                                            <span class="checkmark"></span>
+                                                          </label>
+                                                          <div id="Radios3" class="desc" display:flex; >
+                                                            <!-- <div class="row">
+                                                                <div class="col-md-12 selectDiv"> -->
+                                                                     <!-- Multiselect dropdown -->
+                                                                     <div class="form-group">
+
+                                                                     
+                                                                     <select class="form-control form-control-user  border-bottom-input form-input" id="selectGroup" multiple searchable>
+                                                                        <!-- <option value="" disabled selected></option> -->
+                                                                        <option value="RC Banglore">RC Banglore</option>
+                                                                        <option value="RC Karachi">RC Karachi</option>
+                                                                        <option value="RC Chennai">RC Chennai</option>
+                                                                       
+                                                                      </select>
+                                                                    </div>
+                                                              
+                                                                <!-- End -->
+                                                                <!-- </div>
+
+                                                            </div> -->
+                                                                <!-- <div class="form-group"> -->
+                                                                        <!-- <input type="text" class="form-control form-control-user  border-bottom-input form-input" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Title"> -->
+                                                                        
+                                                                    
+                                                                <!-- </div> -->
+                                                                <div class="form-group">
+                                                                    <p onClick="showBackDrop()" class="small-txt float-right text-blue cursor-point">+ Create New</p>
+                                                                </div>
+                                                            </div>
+            
+    
+                                               
+                                            </div>
+                                            <div class="button-group mt-5 d-flex">
+                                                <button type="submit" class="button-primary" onClick="sendBroadCast(this.form)">Send</button>
+                                                <button type="button" class="button-secondary ml-5" onClick="resetFormFields(this.form)">Cancel</button>
+                                            </div>
+                                    
+
+                                    </div>
+                               </div>
+                               
+                            </div>
+                            </form>
+
+
+                           
+                                  
+                           
+
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Wrapper -->
+
+
+
+</body>
+<script>
+    let selectedGroups = null;
+    let selectedMembers = null;
+    let selectedRadioBtn= null;
+    
+    $(document).ready(function() {
+        debugger;
+        $("div.desc").hide();
+  
+        $("input[name$='casts']").click(function() {
+            var test = $(this).val();
+            console.log("casts  "+test);
+            $("div.desc").hide();
+            $("#Radios" + test).show();
+            $("#Radios" + test).children("div").show();
+            restoreValues(test);
+        });
+        $('#selectGroup').select2();
+        $('#selectManual').select2();
+        $('#groupMemberSelect').select2();
+    });  
+    
+   
+
+    function showBackDrop(){
+        $("#backdrop").show();
+    }
+    function hideBackDrop(){
+        $("#backdrop").hide();
+    }
+    $(document).ready(function () {
+            $("#ToggleSideMenu").click(function (e) {
+                e.preventDefault();
+                $("#accordionSidebar").toggleClass("toggled");
+            });
+        });
+
+    $(function(){
+        $("#selectGroup").on('change',function(){
+            console.log("Value of select box of group changes to:");
+            console.log($(this).val().toString());
+            selectedGroups = $(this).val();
+
+        });
+        $("#selectManual").on('change', function(){
+        console.log("The values from group member select box are: ");
+        console.log($(this).val().toString());
+        selectedMembers = $(this).val();
+    });
+    });
+
+    
+
+    // function createGroup(){
+    //     var groupMemberSelect = $("#groupMemberSelect").val();
+    //     var groupNameInput = $("#groupNameInput").val();
+    //     console.log("Create Group cliked: "+groupNameInput+" , "+groupMemberSelect);
+    //     addONewOptionInGroupSelect(groupNameInput);
+    //     hideBackDrop();
+    // }
+
+    // function addONewOptionInGroupSelect(groupName){
+    //     $("#selectGroup").append('<option value='+'"'+groupName+'"'+' selected="selected">'+groupName+'</option>');
+    // }
+
+    function restoreValues(radioButtonValue){
+       console.log("radioButtonValue: "+radioButtonValue);
+       
+       selectedRadioBtn=radioButtonValue;
+       
+       //$("#Radios" + radioButtonValue).children("select option:selected").removeAttr("selected");
+        
+      // $("#selectManual").val(null).trigger('change');
+      // $("#selectGroup").val(null).trigger('change');
+
+       if(radioButtonValue == 2){
+        $("#selectGroup").val(null).trigger('change');
+        selectedGroups = null;
+       }
+       else{
+        $("#selectManual").val(null).trigger('change');
+        selectedMembers = null;
+       }
+    //    var newOption = new Option("", data.id, false, false);
+    //     $('#mySelect2').append(newOption).trigger('change');
+    }
+
+    function sendBroadCast(event){
+       // debugger;
+        // let selectedGroups = $('#selectGroup').val();
+        // let selectedMembers = $('#selectManual').val();
+        //event.preventDefault();
+     
+        console.log(event);
+      //  console.log(event.find($("#selectGroup")).val());
+        let selectedOptions = 'all';
+        let broadCastTitle = $('#broadCastTitle').val();
+        let broadCastMessage = $('#broadCastMessage').val();
+        console.log("selectedGroups = "+selectedGroups+" selectedMembers = "+selectedMembers+" broadCastTitle= "+broadCastTitle+" broadCastMessage = "+broadCastMessage);
+        
+        if(selectedGroups !== null){
+            selectedOptions = selectedGroups;
+            
+        }else if(selectedMembers !== null){
+            selectedOptions = selectedMembers;
+        }
+
+        //alert("Selected Options: "+selectedOptions);
+        var emailList;
+        
+        if(selectedRadioBtn==2)
+        	emailList=$("#selectManual").val();
+        else if(selectedRadioBtn==3)
+        	emailList=$("#selectGroup").val();
+        	
+        var emailIds=emailList.toString().split(',');
+     	 console.log("email ids are "+JSON.stringify(emailList))
+     	 
+     	 
+     	 var obj={
+                 "title": broadCastTitle,
+                 "message":broadCastMessage,
+            	"emailIds":emailList
+             }
+     	 
+     	
+        $.ajax({
+            type:"POST",
+            url:"api/sendMessage",
+            contentType:"application/json",
+            data:JSON.stringify(obj),
+            /*
+            url:"api/sendMessage/"+broadCastTitle + "/" + broadCastMessage +"/all",
+            data: {
+                "emails": emailList
+            },
+            */
+            success:function(response){            
+                console.log(response);
+            },
+            error: function(error){          
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+
+        
+    }
+    function resetFormFields(evt){
+        //evt.trigger("reset");
+        $("#broadCastForm").trigger('reset');
+        $("#selectGroup").val(null).trigger('change');
+        selectedGroups = null;
+        $("#selectManual").val(null).trigger('change');
+        selectedMembers = null;
+
+        $("#Radios2").hide();
+        $("#Radios3").children("div").hide();
+    }
+    </script>
+</html>

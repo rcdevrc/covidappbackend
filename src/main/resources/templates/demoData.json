@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Seema",
+        "id" : "RCI912",
+        "location":"Chennai"
+    },
+    {
+        "name": "Hamid",
+        "id" : "RCI978",
+        "location":"Karachi"
+    },
+    {
+        "name": "Jamshed",
+        "id" : "RCI667",
+        "location":"U.S"
+    },
+    {
+        "name": "Gul",
+        "id" : "RCI110",
+        "location":"Karachi"
+    }
+]

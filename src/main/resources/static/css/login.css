@@ -1,0 +1,65 @@
+body{
+    /* background-color:#667b78; */
+    background-image: url(../assets/images/bg.png);
+    background-repeat: no-repeat;
+}
+.loginpg{
+    /* background-color:#667b78; */
+    
+    overflow-y: visible;
+    height: 100vh;
+}
+.bg-logo-img{
+    background-image:url(../assets/images/sign-in-logo.png);
+    /* background-image:url(..//assets//images/retrieve-deleted-files-on-pc-thumbnail.png); */
+    background-repeat: no-repeat;
+    height:30px;
+    width:100px; 
+    background-size:contain;
+    background-position: 2em;
+    /* background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBNzhbjF2YteWJQSypQz4opvBrB-Wot5LTJrVkTN-Gc_ER-F1-&usqp=CAU); */
+}
+.border-bottom-input{
+    /* border-bottom:1px solid grey; */
+    border-top-style: none !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+    border-bottom:1px solid lightgray;
+    border-radius: 0 !important;
+    font-size: x-small;
+}
+.btn-signin{
+    background-color:#00bbd9;
+    
+}
+.text-red{
+    color:red !important;
+  }
+  
+.label-coloured-small{
+    color:#00bbd9;
+    
+}
+.small-txt{
+    font-size:small;
+}
+.xsmall-txt{
+    font-size:x-small;
+}
+.xxsmall-txt{
+    font-size:xx-small
+}
+.checkbox-align{
+    margin-top:7px;
+    padding-left:0rem !important;
+
+}
+.bottom-note{
+    /* margin-right:20px; */
+    /* vertical-align: bottom; */
+    /* position: absolute; */
+    bottom:0;
+    display:flex;
+    justify-content:space-between;
+    width: 100%;
+}

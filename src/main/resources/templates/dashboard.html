@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Manage Associates</title>
+
+    
+    
+     <!-- Bootstrap link -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css"> -->
+    
+    <!-- <link rel="stylesheet" href="../static/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    
+    <link href="./css/all.css" rel="stylesheet">
+    <!-- <link href="../static/css/all.css" rel="stylesheet"> -->
+
+    <link href="./css/login.css" rel="stylesheet">
+    <!-- <link href="../static/css/login.css" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="./css/sb-admin-2.css">
+    <!-- <link rel="stylesheet" href="../static/css/sb-admin-2.css"> -->
+    
+    <link href="./css/manageAssociates.css" rel="stylesheet">
+    <!-- <link href="../static/css/manageAssociates.css" rel="stylesheet"> -->
+    
+    <link href="./css/topbar_sidebar.css" rel="stylesheet">
+    <!-- <link href="../static/css/topbar_sidebar.css" rel="stylesheet"> -->
+    
+    <link href="./css//header.css">
+    <!-- <link href="../static/css//header.css"> -->
+
+    <link href="./css/opensans-fonts.css" rel="stylesheet">
+    <!-- <link href="../static/css/opensans-fonts.css" rel="stylesheet"> -->
+
+
+    <!--cdns for datatable plugin -->
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- <script src="./js/bootstrap.bundle.min.js"></script>  -->
+    <!-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
+    <!--  -->
+
+    <script src="./js/jquery.min.js"></script>
+    <!-- <script src="./js/popper.min.js"></script> -->
+    <!-- <script src="../static/js/jquery.min.js"></script> -->
+    
+    <script src="./js/all.js"></script>
+    <!-- <script src="../static/js/all.js"></script> -->
+    
+    
+     <script src="./js/bootstrap.bundle.min.js"></script>
+     <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion dashsidebar bgsidebar" id="accordionSidebar">
+
+            
+            <li class="nav-item">
+                <div class="nav-first-item">
+                    <p class="text-center bg-blue">COVID TRACKER</p>
+                </div>
+            </li>
+                        <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link active" href="./healthBoard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Health Board</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item sidebarlinkactive">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Manage Associates</span></a>
+            </li>
+
+            <li class="nav-item active">
+                 <a class="nav-link " href="./broadcast">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Create Broadcast</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="./viewTracingInfo">
+                    <i class="fas fa-cube"></i>
+                    <span>View Tracking Info</span></a>
+            </li>
+
+           
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column bgcontent">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <!-- select project -->
+                    <span id="ToggleSideMenu">
+                        <i class="fa fa-bars"></i>
+                       </span>
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item -->
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-search"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-crosshairs"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                          <i class="far fa-bell"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="far fa-user"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <span class="small-txt">Hi, John</span>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <div class="container-fluid container-pos">
+
+                    <!-- Page Heading -->
+                    
+
+                    <!-- Content Row -->
+                    <div class="container-nested">
+                        <div class="cardBox" id="dashboardDiv">
+                            <!-- new script body -->
+                            
+                            <div class="createScriptStageTitle">
+                                <div class=" activeLinkBox tablinks border-green" onclick="openCity(event, 'importAssociate')">
+                                    <a class=" d-flex flex-auto" href="#" >
+                                        <p>Import Associates By 
+                                            CSV</p> 
+                                        
+                                    </a>
+                                  
+                                </div>
+                                <div class=" tablinks border-blue" onclick="openCity(event, 'addNew')">
+                                    <a class=" d-flex flex-auto " href="#" >
+                                        <p>Add New Associate</p>  
+                                        
+                                    </a>
+                                 
+                                </div>
+                                <div class=" tablinks border-yellow" onclick="openCity(event, 'manageExisting')">
+                                    <a class=" d-flex flex-auto " href="#" >
+                                        <p>View / Manage Existing
+                                        </p>  
+                                        
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <div class="createScriptTiles tabcontent pt-4 pb-3" id="importAssociate">
+                                <!-- Import CSV File -->
+                                <div class="justify-content-center  ml-2  mt-4 row"  id="newScript">
+                                    
+                                    <!-- <div class=""> -->
+                                        <form method="POST" th:action="@{/upload-csv-file}" enctype="multipart/form-data">
+                                            <div class="form-group mt-3 col-md-8 col-lg-8">
+                                                <label for="file" class="upload-label">Select file to upload</label>
+                                                <input type="file" name="file" class="form-control-file btn btn-outline-primary button-outline" id="file" accept=".csv">
+                                            </div>
+                                            <div class="col-md-10">
+                                                <button type="submit" class="button float-right">Import Users</button>
+                                            </div>
+                                        </form>
+                                    <!-- </div> -->
+
+                                </div>
+                            </div>
+
+                                <!-- Add new associate -->
+                                <div class="createScriptTiles tabcontent pt-4 pb-3" id="addNew" style="display: none;" >
+                                <div class="justify-content-center ml-2  mt-4 row" id="newAssociate" >
+                                    <div class="col-md-11">
+                                        <div class="circle-xsmall bg-grey float-right">
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group has-search">
+                                            <span class="fa fa-search form-control-feedback"></span>
+                                            <input type="text" class="form-control" placeholder="Search" id="searchAssociate">
+                                        </div>
+                                        <div class="pt-0 infoDiv">
+
+                                        
+                                        <div class="col-md-10">
+                                            <p class="font-bold">
+                                                Akil Anio
+                                            </p>
+                                            <p class="text-black">
+                                                RC1356
+                                            </p>
+                                            <p class="text-grey-bold">  
+                                                Senior Interaction Designer
+                                            </p>
+                                        </div>
+                                        <div class="button-group d-flex flex-row">
+                                           
+                                            <!-- <div class="col-md-3"> -->
+                                                <button class="button">Add</button>
+                                            <!-- </div> -->
+                                            <!-- <div class="col-md-3"> -->
+                                                <button class="button-outline">Cancel</button>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                        <div class="col-md-7 float-right over-y infoDiv">
+                                            <div class="col-md-10">
+                                                <p class="text-lg text-black">Personal Information</p>
+                                                <div class="row">
+                                                    <div class="col-md-4 font-bold">
+                                                        Department
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black">
+                                                        <p>UI/UX</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-4 font-bold">
+                                                        Contact
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black">
+                                                        <p>+1 2345 222 434</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-4 font-bold">
+                                                        Emergency contact
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black">
+                                                        <p>+1 3434 897 000</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-4 font-bold">
+                                                        Permanent Address
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black">
+                                                        <p>345, West Senate road, Mounting wale, Naperville</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-4 font-bold">
+                                                        Current Address
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black">
+                                                        <p>
+                                                            12-D, Willington St, Northbridge colony, Block-10, Naperville
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                   
+
+                                </div>
+                            </div>
+
+                                <!-- View / Manage Existing -->
+                            <div  class="createScriptTiles  pt-4 pb-3 tabcontent" id="manageExisting" style="display: none;">
+                                <div class=" justify-content-center ml-2  mt-4 row " id="viewExisting">
+                                    <div class="col-md-4 d-flex pb-2">
+                                        <!-- <p class="float-r">Covid Affected</p> -->
+                                        <div class="w-100">
+                                            <select class="select-custom w-100" name="statusFilter" id="selectStatusFilter">
+                                                <option value="Covid Affected">Covid Affected</option>
+                                                <option value="Other Illness">Other Illness</option>
+                                                <option value="Feeling Good">Feeling Good</option>
+                                            </select>
+                                        </div>
+<!--                                         <span class="fas fa-filter funnel"></span> -->
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="circle-xsmall bg-grey float-right mr-0">
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        
+                                        <!-- <div class="form-group has-search">
+                                            <span class="fa fa-search form-control-feedback"></span>
+                                            <input type="text" class="form-control" placeholder="Search">
+                                        </div> -->
+                                       
+                                        <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start over-y-small" >
+                                            <table class="table table-hover orgtable" id="associateTable">
+                                                <thead>
+                                                    <tr class="headerRow">
+                                                        <th scope="col" >Name</th>
+                                                        <th scope="col">Location</th>
+                                                        <th scope="col">Department</th>
+                                                        <th scope="col" class="d-none">Status</th>
+                                                        <th scope="col" class="d-none">email</th>
+                                                        <th scope="col" class="d-none">lastName</th>
+                                                        <th scope="col" class="d-none">Date</th>
+                                                        
+                                                        <!-- <th scope="col" class="d-none">Time</th> -->
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <!-- <tbody>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            
+                                                            Vinoth
+                                                        </td>
+                                                        <td >RC1029</td>
+                                                        <td >Chennai</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            
+                                                            Prasant
+                                                        </td>
+                                                        <td >RC1453</td>
+                                                        <td >Banglore</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            
+                                                            Shiva
+                                                        </td>
+                                                        <td >RC1990</td>
+                                                        <td >Banglore</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            
+                                                            Kedernath
+                                                        </td>
+                                                        <td >RC1347</td>
+                                                        <td >Chennai</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            
+                                                            Kethy
+                                                        </td>
+                                                        <td >RC1355</td>
+                                                        <td >Chennai</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            
+                                                            Vinayx
+                                                        </td>
+                                                        <td >RC1345</td>
+                                                        <td >Chennai</td>
+                                                        
+                                                    </tr>
+                                                </tbody> -->
+                                            </table>
+                                        </div>
+                                    </div>
+                                   
+                                        <div class="col-md-7 float-right ">
+                                            <div class="col-md-12 d-flex ml-0">
+                                                <div class="col-md-8">
+                                                    <p class="text-lg text-black ml-0">Associate Information</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="./viewTracingInfo" class="ml-5 small-txt">View Trace Info</a>
+                                                    <!-- <p onClick="showTraceInfo()" class="ml-5 small-txt text-blue cursor-point">View Trace Info</p> -->
+                                                </div>
+                                      
+                                                
+                                                    
+                                                
+                                            </div>
+                                            <div class="col-md-12 justify-content-start over-y-small">
+                                                
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-4 font-bold">
+                                                        <p class="pt-2">Associate Name</p>
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mt-0">
+                                                            <input type="text" class="form-control form-control-user border-bottom-input form-input" placeholder="Name" id="associateName"> 
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 font-bold">
+                                                        <p class="pt-2">Associate Dept.</p>
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mt-0">
+                                                            <input type="text" class="form-control form-control-user border-bottom-input form-input" placeholder="Department" id="associateDepartment"> 
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 font-bold">
+                                                        Status
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black pt-1">
+                                                        <!-- <div> -->
+                                                            <select class="select-custom" id="associateHealthStatus">
+                                                                <option value="Covid Affected">Covid affected</option>
+                                                                <option value="Other Illness">Other Illness</option>
+                                                                <option value="Feeling Good">Feeling Good</option>
+                                                                
+                                                            </select>
+                                                        <!-- </div> -->
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 font-bold">
+                                                        <p class="pt-4">Location</p>
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        <p class="pt-4">:</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mt-0">
+                                                            <input type="text" class="form-control form-control-user border-bottom-input form-input mt-2" placeholder="Location" id="associateLocation"> 
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 font-bold">
+                                                        Date
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black">
+                                                        <input type="date" class="select-custom" id="associateDate">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-4">
+                                                    <div class="col-md-4 font-bold">
+                                                        Time
+                                                    </div>
+                                                    <div class="col-md-1 text-black">
+                                                        :
+                                                    </div>
+                                                    <div class="col-md-6 text-black d-flex">
+                                                        <div class="col-md-6">
+                                                            <input type="time" class="select-custom" id="timeFrom">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="time" class="select-custom" id="timeTo">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                        
+
+                                </div>
+                                <!-- <div class="row mt-4">
+                                                    
+                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4 d-flex">
+                                        <button class=" button">update</button>
+                                    
+                                        <button class=" button-outline">Cancel</button>
+                                    </div>
+                                
+                            </div> -->
+                           
+                        </div>
+                    </div>
+                    <!-- Cardbox for viewing trace info of selected user -->
+                    <div class="cardBox ml-4 mt-3" id="viewTraceInfoDiv" style="display:none;">
+                        <div class="createScriptStageTitle">
+                            <div class="activeLinkBox tablinks border-green">
+                                <a class="activeLink d-flex flex-auto" href="#" >
+                                    <p>View Contact Trace Info</p>  
+                                    
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <div class="createScriptTiles">
+                            
+                            <div class="row justify-content-center ml-1">
+                                <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start pt-3 over-y bg-white">
+                                    <table class="table table-hover table-bordered orgtable" id="viewTracingInfoTable">
+                                        <thead>
+                                            <tr class="headerRow">
+                                                <th scope="col" >Name</th>
+                                                <th scope="col">RC id</th>
+                                                <th scope="col">Location</th>
+                                                
+                                                
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Status</th>
+                                                <!-- <th scope="col"> </th> -->
+                                                
+                                            </tr>
+                                        </thead>
+                                       <tbody>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                    Devakar Mahesh
+                                                </td>
+                                                <td >RC1345</td>
+                                                <td >Banglore</td>
+                                                
+                                                <td >
+                                                    +91 9501 440 999
+                                                </td>
+                                                <td>
+                                                    devakar.mahesh@gmail.com
+                                                </td>
+                                                <td>
+                                                   <div class="actionSuccess">
+                                                       Recovered
+                                                   </div>
+                                               </td>
+                                               <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                   Abdul jalil
+                                                </td>
+                                                <td >RCI767</td>
+                                                <td >Karachi</td>
+                                                
+                                                <td >
+                                                   +92333 7572688
+                                                </td>
+                                                <td>
+                                                   abdul.jalil@royalcyber.com
+                                               </td>
+                                                <td>
+                                                   <div class="actionFail">
+                                                       In Care
+                                                   </div>
+                                               </td>
+                                               <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                   Abdul Kalam
+                                                </td>
+                                                <td >RCI539</td>
+                                                <td >Chennai</td>
+                                                
+                                                <td >
+                                                   +919959864786
+                                                </td>
+                                                <td>
+                                                   abdul.kalam@royalcyber.com
+                                               </td>
+                                                <td>
+                                                   <div class="actionSuccess">
+                                                       Recovered
+                                                   </div>
+                                               </td>
+                                                <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            <tr>
+                                               <td scope="row">
+                                                   
+                                                   Abdul Katheri
+                                               </td>
+                                               <td >RCI333</td>
+                                               <td >Banglore</td>
+                                               
+                                               <td >
+                                                   8825407928
+                                               </td>
+                                               <td>
+                                                   abdul.katheri@royalcyber.com
+                                               </td>
+                                               <td>
+                                                  <div class="actionSuccess">
+                                                      Recovered
+                                                  </div>
+                                              </td>
+                                               <!-- <td>
+                                                  <div class="circle-small bg-blue text-white">
+                                                      <i class="fas fa-angle-right"></i>
+                                                  </div>
+                                              </td> -->
+                                           </tr>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                    Abdul Majid
+                                                </td>
+                                                <td >RCI888</td>
+                                                <td >Karachi</td>
+                                                
+                                                <td >
+                                                   +923003073362
+                                                </td>
+                                                <td>
+                                                   abdulmajid@royalcyber.com
+                                               </td>
+                                                <td>
+                                                   <div class="actionSuccess">
+                                                       Recovered
+                                                   </div>
+                                               </td>
+                                                <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                    S.M Abbas
+                                                </td>
+                                                <td >RCI678</td>
+                                                <td >Karachi</td>
+                                                
+                                                <td >
+                                                    +91 315 100 1104
+                                                </td>
+                                                <td>
+                                                   muhammad.abbas@royalcyber.com
+                                               </td>
+                                                <td>
+                                                   <div class="actionSuccess">
+                                                       Recovered
+                                                   </div>
+                                               </td>
+                                                <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                   Maqsood Ahmed
+                                                </td>
+                                                <td >RCI767</td>
+                                                <td >Karachi</td>
+                                                
+                                                <td >
+                                                   +923132968112
+                                                </td>
+                                                <td>
+                                                   maqsood.ahmed@royalcyber.com
+                                               </td>
+                                                <td>
+                                                   <div class="actionSuccess">
+                                                       Recovered
+                                                   </div>
+                                               </td>
+                                                <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            <tr>
+                                               <td scope="row">
+                                                   
+                                                   Kashif Hashmi
+                                               </td>
+                                               <td >RCI539</td>
+                                               <td >Karachi</td>
+                                               <td >
+                                                   03111008009
+                                               </td>
+                                               <td>
+                                                   kashif.hashmi@royalcyber.com
+                                               </td>
+                                               <td>
+                                                  <div class="actionSuccess">
+                                                      Recovered
+                                                  </div>
+                                              </td>
+                                               <!-- <td>
+                                                  <div class="circle-small bg-blue text-white">
+                                                      <i class="fas fa-angle-right"></i>
+                                                  </div>
+                                              </td> -->
+                                           </tr>
+                                            <tr>
+                                                <td scope="row">
+                                                    
+                                                    Zahoor Ahmed
+                                                </td>
+                                                <td >RCI333</td>
+                                                <td >Karachi</td>
+                                                
+                                                <td >
+                                                   +923003459011
+                                                </td>
+                                                <td>
+                                                   zahoor@royalcyber.com
+                                               </td>
+                                                <td>
+                                                   <div class="actionSuccess">
+                                                       Recovered
+                                                   </div>
+                                               </td>
+                                                <!-- <td>
+                                                   <div class="circle-small bg-blue text-white">
+                                                       <i class="fas fa-angle-right"></i>
+                                                   </div>
+                                               </td> -->
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                    
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                                           
+                            
+                             
+            </div>
+          </div>
+                           
+                           
+
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Wrapper -->
+
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+            
+            $("#ToggleSideMenu").click(function (e) {
+                e.preventDefault();
+                $("#accordionSidebar").toggleClass("toggled");
+            });
+            // $(".infoDiv").hide();
+            
+        });
+        $(document).ready(function(){
+
+            $("#associateTable").DataTable();
+            $("#associateTable_length").hide();
+            
+        });
+        
+        
+
+    //function for switching tabs
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        //tabcontent[i].children().style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" activeLinkBox", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " activeLinkBox";
+      console.log("showing div Id: "+cityName);
+      if(cityName === "manageExisting"){
+          populateCovidData();
+          //populateTable(covidData);
+      }
+    }
+  
+    // for grabing data from table and show in fields
+    // $("#associateTable tr").on('click',function(){
+    //     var data = $(this).children('td:nth(1)').text();
+    //     console.log(data);
+    //     $("#associateHealthStatus").val("2");
+        
+    //     //changing date
+    //     var now = new Date();
+
+    //     var day = ("0" + now.getDate()).slice(-2);
+    //     var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    //     var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+    //     $('#associateDate').val(today);
+
+    //     //updating time field
+    //     $("#timeFrom").val('17:39:57');
+    // });
+
+
+    // $("#associateTable").row().on('click',function(){
+    //         var data = $(this).child();
+    //         console.log(data);
+    // });
+    $("#associateDate").on('change',function(){
+        console.log($(this).val());
+    });
+    $("#timeFrom").on('change',function(){
+        console.log($(this).val());
+    });
+
+    
+    //demo data
+    var covidData = [
+    {
+        "firstName": "Yasir",
+        "lastName": "Aziz",
+        "userPrincipalName": "yasir.aziz@royalcyber.com",
+        "mobilePhone": "'+923422988332",
+        "department": "Mobile Developer",
+        "office": "Karachi",
+        "status": "Covid Affected",
+        "comments": "",
+        "date": "07-06-2020 14:30:50"
+    },
+    {
+        "firstName": "Nadir",
+        "lastName": "Akhlaaq",
+        "userPrincipalName": "nadir.akhlaaq@royalcyber.com",
+        "mobilePhone": "'+923422988332",
+        "department": "Mobile Developer",
+        "office": "Karachi",
+        "status": "Other Illness",
+        "comments": "",
+        "date": "07-06-2020 14:30:50"
+        },
+    {
+        "firstName": "Siva",
+        "lastName": "V",
+        "userPrincipalName": "siva.v21@royalcyber.com",
+        "mobilePhone": "'+923422988332",
+        "department": "Mobile Developer",
+        "office": "Karachi",
+        "status": "Feeling Good",
+        "comments": "",
+        "date": "07-06-2020 14:30:50"
+    },
+    {
+        "firstName": "Shiva",
+        "lastName": "Yogi",
+        "userPrincipalName": "shiva.yogi@royalcyber.com",
+        "mobilePhone": "'+923422988332",
+        "department": "Mobile Developer",
+        "office": "Karachi",
+        "status": "Covid Affected",
+        "comments": "",
+        "date": "07-06-2020 14:30:50"
+    },
+    {
+        "firstName": "Aamir",
+        "lastName": "Shehzaad",
+        "userPrincipalName": "aamir.shehzaad@royalcyber.com",
+        "mobilePhone": "'+923422988332",
+        "department": "Mobile Developer",
+        "office": "Karachi",
+        "status": "Other Illness",
+        "comments": "",
+        "date": "07-06-2020 14:30:50"
+    }
+];
+
+    
+   
+    
+    
+     
+    
+    $(function(){
+        // $("#associateTable").DataTable();
+        // $("#associateTable_length").hide();
+        
+        $('#selectStatusFilter').on('change', function() {
+        var SelectedValue = $(this).find('option:selected').text();
+        var SelectedId = $(this).val();
+        console.log("Selected Id is : ");
+        console.log(SelectedId);
+
+        var SelectedData = {"SelectedValue": SelectedValue,"SelectedId": SelectedId};
+        console.log("Selected Data is: ");
+        console.log(SelectedData);
+        var targetURL= URL;
+        if(SelectedId == "Other Illness") {
+            populateOtherIllnessData();
+        }
+        else if(SelectedId == "Feeling Good"){
+            populateFeelingGoodData();
+        }
+        else{
+            populateCovidData();
+            //populateTable(covidData);
+        }
+        
+    });
+
+});
+
+
+function populateFeelingGoodData(){
+    let param = "Feeling Good";
+    $.ajax({ 
+            
+            url: "api/gethealthboard/"+param, 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                populateTable(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+    }
+
+function populateOtherIllnessData(){
+    let param = "Other Illness";
+    $.ajax({ 
+            
+            url: "api/gethealthboard/"+param, 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                populateTable(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+}
+
+//for populating Covid Data
+    function populateCovidData(){
+        let param = "Covid Affected";
+        $.ajax({ 
+            
+            url: "api/gethealthboard/"+param, 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                populateTable(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+          
+
+    
+    }
+
+    function populateTable(response){
+        //Load data columns
+    if ( $.fn.DataTable.isDataTable('#associateTable') ) {
+  		$('#associateTable').DataTable().destroy();
+	}
+    var associateTable = $('#associateTable');
+    associateTable.DataTable ({
+         "data" : response , //can make anther variable for other illness data
+         "columnDefs": [
+         {
+                "targets": [3], //column hide 
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [4], //column hide 
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [5], //column hide 
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [6], //column hide 
+                "visible": false,
+                "searchable": false
+            }
+            // {
+            //     "targets": [7], //column hide 
+            //     "visible": false,
+            //     "searchable": false
+            // }
+
+           
+          ],
+         "columns": [
+                { "data": "firstName" },
+                { "data": "office" },
+                { "data": "department" },
+                {"data":"status"},
+                {"data":"userPrincipalName"},
+                {"data":"lastName"},
+                {"data":"date"},
+                
+
+            ]
+     });
+     $("#associateTable_length").hide();
+    }
+    
+    $('#associateTable').on('click', 'tbody tr', function (){
+        var row = $('#associateTable').DataTable().row($(this)).data();
+        console.log(row);
+        console.log(row.name);
+        $("#associateName").val(row.firstName +" "+row.lastName);
+        //console.log(row.id);
+        console.log(row.location);
+        $("#associateLocation").val(row.office);
+        console.log(row.department);
+        $("#associateDepartment").val(row.department);
+        console.log(row.status);
+        $("#associateHealthStatus").val(row.status);
+        console.log(row.date);
+        let splitedArray = row.date.split(' ');
+        //$("#associateDate").val(row.date);
+        //console.log(row.time);
+
+            //let currDate = new Date().toLocaleDateString('en-GB'); 
+            let dateValue = splitedArray[0];//row.date;
+            let jsonDate = dateValue.slice(0,10).split('-').reverse().join('-');
+            console.log('JsonDate = '+jsonDate);
+            
+  
+            document.querySelector('#associateDate').textContent 
+                    = jsonDate;
+
+            $('#associateDate').val(jsonDate); 
+            
+            let timeValue = splitedArray[1];
+            $('#timeFrom').val(timeValue);
+            $('#timeTo').val(row.time);
+    });
+        // $(document).ready(function(){
+        //     $("#associateTable").DataTable();
+        //     $("#associateTable_length").hide();
+            
+        // });
+        
+        // //for view tracing info table
+        // function showTraceInfo(){
+        //     $("#dashboardDiv").hide();
+        //     $("#viewTraceInfoDiv").show();
+        //     $("#viewTracingInfoTable").DataTable();
+        // }
+
+        //for autocomplete of search
+        $(function(){
+            var searchData=[
+                "3134 Anil Aknio Burberry Kindergarten",
+                "3132 Anil Abraham Burberry Kindergarten",
+                "3133 Anil Bait Burberry Kindergarten",
+                "3135 Gream Sawaan red berry Kindergarten",
+                "3136 Jamie Dorfman blue berry Huffman",
+                "3137 Viana Bodgan curl berry Secondary"
+        ]
+        $("#searchAssociate").autocomplete({
+            // source:["prasant","edgar", "ion", "leon","winner","wine","wind","window","windsor"],
+            source:searchData,
+            minLength:2
+        });
+    });
+    //for view tracing info table
+    function showTraceInfo(){
+            $("#dashboardDiv").hide();
+            $("#viewTraceInfoDiv").show();
+            $("#viewTracingInfoTable").DataTable();
+        }
+    </script>
+
+</html>

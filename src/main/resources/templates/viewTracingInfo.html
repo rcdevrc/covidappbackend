@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>View Tracing Info</title>
+
+    
+    
+     <!-- Bootstrap link -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css"> -->
+    
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="../static/css/font-awesome.min.css"> -->
+    
+    <link href="./css/all.css" rel="stylesheet">
+    <!-- <link href="../static/css/all.css" rel="stylesheet"> -->
+
+    <link href="./css/login.css" rel="stylesheet">
+    <!-- <link href="../static/css/login.css" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="./css/sb-admin-2.css">
+    <!-- <link rel="stylesheet" href="../static/css/sb-admin-2.css"> -->
+    
+    <link href="./css/viewTracingInfo.css" rel="stylesheet">
+    <!-- <link href="../static/css/viewTracingInfo.css" rel="stylesheet"> -->
+    
+    <link href="./css/topbar_sidebar.css" rel="stylesheet">
+    <!-- <link href="../static/css/topbar_sidebar.css" rel="stylesheet"> -->
+    
+    <link href="./css/header.css">
+    <!-- <link href="../static/css/header.css"> -->
+
+    <link href="./scss/charts.scss"> 
+    <!-- <link href="../static/scss/charts.scss">  -->
+    
+    <link href="./css/opensans-fonts.css" rel="stylesheet">
+    <!-- <link href="../static/css/opensans-fonts.css" rel="stylesheet"> -->
+    
+    <script src="./js/jquery.min.js"></script>
+    <!-- <script src="../static/js/jquery.min.js"></script> -->
+    
+    <script src="./js/popper.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+
+    <script src="./js/all.js"></script>
+    <!-- <script src="../static/js/all.js"></script> -->
+
+    <script src="./js/chart-area-demo.js"></script>
+    <!-- <script src="../static/js/chart-area-demo.js"></script> -->
+
+    <script src="./js/Chart.js"></script>
+    <!-- <script src="../static/js/Chart.js"></script> -->
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" /> -->
+     
+     
+     <script src="./js/bootstrap.bundle.min.js"></script>
+     <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+
+     <!-- cdn for datatable plugin -->
+     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+     
+     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion dashsidebar bgsidebar" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center backgroundlogo"
+                href="#">
+                <embed 
+                    src="https://www.royalcyber.com/wp-content/uploads/2018/04/Royal-Cyber-Logo.svg" width="100"
+                    height="50" type="image/svg+xml"/>
+            </a> -->
+            <li class="nav-item">
+                <div class="nav-first-item">
+                    <p class="text-center bg-blue">COVID TRACKER</p>
+                </div>
+            </li>
+                        <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link active" href="./healthBoard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Health Board</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="./dashboard">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Manage Associates</span></a>
+            </li>
+
+            <li class="nav-item active">
+                 <a class="nav-link " href="./broadcast">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Create Broadcast</span></a>
+            </li>
+
+            <li class="nav-item sidebarlinkactive">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-cube"></i>
+                    <span>View Tracking Info</span></a>
+            </li>
+
+           
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column bgcontent">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <!-- select project -->
+                    <span id="ToggleSideMenu">
+                        <i class="fa fa-bars"></i>
+                       </span>
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item -->
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-search"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-crosshairs"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                          <i class="far fa-bell"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="far fa-user"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <span class="small-txt">Hi, John</span>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <div class="container-fluid container-pos">
+
+                    <!-- Page Heading -->
+                    
+
+                    <!-- Content Row -->
+                    <div class="container-nested">
+                        <div class="cardBox">
+                            <!-- new script body -->
+                            
+                            <div class="createScriptStageTitle">
+                                <div class="activeLinkBox tablinks border-green" onClick="openCity(event, 'tableDiv')">
+                                    <a class="activeLink d-flex flex-auto" href="#" >
+                                        <p>View Contact Trace Info</p>  
+                                        
+                                    </a>
+                                    
+                                </div>
+                                <div class="mb-3 tablinks border-blue" onClick="openCity(event, 'updateManually')">
+                                    <a class="activeLink d-flex flex-auto mt-3" href="#" >
+                                        <p>Update Contact Trace Manually</p> 
+                                        
+                                    </a>
+                                     
+                                </div>
+
+                            </div>
+                          
+                        <!-- grid for table -->
+                        <div class="createScriptTiles tabcontent pt-2" id="tableDiv" >
+                           
+                            <!-- table  -->
+                            <div class="row justify-content-start ml-2 mr-2">
+
+                            
+                            <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start pt-2">
+                             <table class="table table-hover orgtable w-100" id="viewTracingInfoTable">
+                                 <thead>
+                                     <tr class="headerRow">
+                                         <th scope="col" >From Name</th>
+                                         <th scope="col">From Email</th>
+                                         <th scope="col">To Name</th>
+                                         
+                                         
+                                         <th scope="col">To Email</th>
+                                         <th scope="col">Location</th>
+                                         <th scope="col">Status</th>
+                                         <!-- <th scope="col"> </th> -->
+                                         
+                                     </tr>
+                                 </thead>
+                                <!-- <tbody>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                             Devakar Mahesh
+                                         </td>
+                                         <td >RC1345</td>
+                                         <td >Banglore</td>
+                                         
+                                         <td >
+                                             +91 9501 440 999
+                                         </td>
+                                         <td>
+                                             devakar.mahesh@gmail.com
+                                         </td>
+                                         <td>
+                                            <div class="actionSuccess">
+                                                Recovered
+                                            </div>
+                                        </td>
+                                        
+                                     </tr>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                            Abdul jalil
+                                         </td>
+                                         <td >RCI767</td>
+                                         <td >Karachi</td>
+                                         
+                                         <td >
+                                            +92333 7572688
+                                         </td>
+                                         <td>
+                                            abdul.jalil@royalcyber.com
+                                        </td>
+                                         <td>
+                                            <div class="actionFail">
+                                                In Care
+                                            </div>
+                                        </td>
+                                       
+                                     </tr>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                            Abdul Kalam
+                                         </td>
+                                         <td >RCI539</td>
+                                         <td >Chennai</td>
+                                         
+                                         <td >
+                                            +919959864786
+                                         </td>
+                                         <td>
+                                            abdul.kalam@royalcyber.com
+                                        </td>
+                                         <td>
+                                            <div class="actionSuccess">
+                                                Recovered
+                                            </div>
+                                        </td>
+                                         
+                                     </tr>
+                                     <tr>
+                                        <td scope="row">
+                                            
+                                            Abdul Katheri
+                                        </td>
+                                        <td >RCI333</td>
+                                        <td >Banglore</td>
+                                        
+                                        <td >
+                                            8825407928
+                                        </td>
+                                        <td>
+                                            abdul.katheri@royalcyber.com
+                                        </td>
+                                        <td>
+                                           <div class="actionSuccess">
+                                               Recovered
+                                           </div>
+                                       </td>
+                                       
+                                    </tr>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                             Abdul Majid
+                                         </td>
+                                         <td >RCI888</td>
+                                         <td >Karachi</td>
+                                         
+                                         <td >
+                                            +923003073362
+                                         </td>
+                                         <td>
+                                            abdulmajid@royalcyber.com
+                                        </td>
+                                         <td>
+                                            <div class="actionSuccess">
+                                                Recovered
+                                            </div>
+                                        </td>
+                                         
+                                     </tr>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                             S.M Abbas
+                                         </td>
+                                         <td >RCI678</td>
+                                         <td >Karachi</td>
+                                         
+                                         <td >
+                                             +91 315 100 1104
+                                         </td>
+                                         <td>
+                                            muhammad.abbas@royalcyber.com
+                                        </td>
+                                         <td>
+                                            <div class="actionSuccess">
+                                                Recovered
+                                            </div>
+                                        </td>
+                                         
+                                     </tr>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                            Maqsood Ahmed
+                                         </td>
+                                         <td >RCI767</td>
+                                         <td >Karachi</td>
+                                         
+                                         <td >
+                                            +923132968112
+                                         </td>
+                                         <td>
+                                            maqsood.ahmed@royalcyber.com
+                                        </td>
+                                         <td>
+                                            <div class="actionSuccess">
+                                                Recovered
+                                            </div>
+                                        </td>
+                                         
+                                     </tr>
+                                     <tr>
+                                        <td scope="row">
+                                            
+                                            Kashif Hashmi
+                                        </td>
+                                        <td >RCI539</td>
+                                        <td >Karachi</td>
+                                        <td >
+                                            03111008009
+                                        </td>
+                                        <td>
+                                            kashif.hashmi@royalcyber.com
+                                        </td>
+                                        <td>
+                                           <div class="actionSuccess">
+                                               Recovered
+                                           </div>
+                                       </td>
+                                        
+                                    </tr>
+                                     <tr>
+                                         <td scope="row">
+                                             
+                                             Zahoor Ahmed
+                                         </td>
+                                         <td >RCI333</td>
+                                         <td >Karachi</td>
+                                         
+                                         <td >
+                                            +923003459011
+                                         </td>
+                                         <td>
+                                            zahoor@royalcyber.com
+                                        </td>
+                                         <td>
+                                            <div class="actionSuccess">
+                                                Recovered
+                                            </div>
+                                        </td>
+                                         
+                                     </tr>
+                                     
+                                 </tbody> -->
+                             </table>
+                             
+                             </div>
+                         </div>
+                         </div>
+
+                         <!-- Update Contact Trace Manually -->
+                         <div class="createScriptTiles tabcontent pt-2" id="updateManually" style="display:none">
+                             <div class="ml-3">
+
+                             
+                            <div class="row mt-4">
+                                <div class="col-md-4">  
+                                    <p class="font-bold text-black">Search Associates</p>
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- <p class="bor-bottom"> -->
+                                        <div class="form-group has-search">
+                                            <span class="fa fa-search form-control-feedback"></span>
+                                            <input type="search" class="form-control form-control-user  border-bottom-input form-input" placeholder="Search">
+                                        </div>
+                                        <!-- <input type="search" class="form-control form-control-user  border-bottom-input form-input" aria-describedby="emailHelp" placeholder="Organisation"> -->
+
+                                    <!-- </p> -->
+                                </div>
+                            </div>   
+                            <div class="row  mt-3">
+                                <div class="col-md-4">  
+                                    <p class="font-bold text-black">Date</p>
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-4">
+                                   <input type="date" class="select-custom">
+                                </div>
+                            </div>  
+                            <div class="row mt-3">
+                                <div class="col-md-4">  
+                                    <p class="font-bold text-black">Time</p>
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-2">
+                                   <input type="time" class="select-custom">
+                                </div>
+                            </div> 
+                            <div class="row mt-3">
+                                <div class="col-md-4">  
+                                    <p class="font-bold text-black">Notes / Comments
+
+                                    </p>
+                                </div>
+                                <div class="col-md-1">
+                                    :
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <textarea class="form-control form-control-user  border-bottom-input form-input" rows="3" id="comment" placeholder="Content, Max of 255 characters"></textarea>
+
+                                </div>
+                                </div>
+                            </div>  
+                        </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6"></div>
+                                <div class="col-md-6 d-flex">
+                                    <div class="col-md-4 mr-0">
+                                        <button class="button float-right">Add</button>
+                                    </div>
+                                    <div class="col-md-4 ml-0">
+                                        <button class="button-outline float-left">Cancel</button>
+                                    </div>
+                                </div>
+                                
+                            </div> 
+                         </div>
+                            </div>
+                            
+                            </div>
+                           
+                           
+
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Wrapper -->
+
+</body>
+<script>
+    $(document).ready(function () {
+            $("#ToggleSideMenu").click(function (e) {
+                e.preventDefault();
+                $("#accordionSidebar").toggleClass("toggled");
+            });
+        });
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      debugger;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" activeLinkBox", "");
+        tablinks[i].className = tablinks[i].className.replace("activeLinkBox" , "");
+        tablinks[i].className = tablinks[i].className.replace("mb-3" , "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " activeLinkBox";
+    }
+
+    // $(document).ready(function(){
+    //     $("#viewTracingInfoTable").DataTable({
+    //         "columnDefs": [
+           
+    //         //  { "searchable": false, "targets": 2 }, 
+    //         // { "searchable": false, "targets": 3 },
+    //         // { "searchable": false, "targets": 4 }, 
+    //         // { "searchable": false, "targets": 5 }, 
+    //         { "searchable": false, "targets": 6 },
+    //       ]
+    //     });
+    // });
+    </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#viewTracingInfoTable').DataTable();
+         $.ajax({ 
+            
+            url: "api/getcontacttraceall", 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                populateTable(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+    });
+        //demo data
+        let traceData = [{ 
+            "fromFirstName" : "Aamir",
+            "fromLastName" : "Shahzad",
+            "fromEmailId" : "aamir.shahzad@royalcyber.com",
+            "mobilePhone" : "3453522576",
+            "department" : "UX/UI",
+            "office" : "Karachi",
+            "toEmailId" : "abid.khan@royalcyber.com",
+            "toFirstName" : "Abid",
+            "toLastName" : "Khan",
+            "comments" : "Met with Abid",
+            "date" : "",
+            "time" : ""
+        }];
+
+        function populateTable(response){
+            if ( $.fn.DataTable.isDataTable('#viewTracingInfoTable') ) {
+  	        	$('#viewTracingInfoTable').DataTable().destroy();
+	        }
+
+            $("#viewTracingInfoTable").DataTable ({
+            "data" : response , //can make anther variable for other illness data
+            "columnDefs": [
+           
+                ],
+            "columns": [
+                { "data": "fromFirstName"  },
+                { "data": "fromEmailId"  },
+                // { "data": "seatingwing" },
+                { "data": "toFirstName"  },
+                { "data": "toEmailId"  },
+                { "data": "office"  },//email
+                { "data": "comments"  },
+            ]
+        });
+    }
+   
+    </script>
+</html>

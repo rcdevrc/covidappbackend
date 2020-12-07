@@ -1,0 +1,343 @@
+.cardBox{
+    /* margin-left: 5px; */
+    padding-left: 30px;
+    padding-top: 18px;
+    padding-bottom: 50px;
+    background-color: inherit;
+    height: auto;
+    border: none;
+    margin-left:0px;
+}
+.container-pos{
+    margin-left:-2rem !important;
+}
+.small-txt{
+    font-size:small;
+}
+.nav-first-item{
+    background-color:#00bbd9;
+    color:white;
+    height:2rem;
+    
+    text-align:center;
+    
+}
+
+.nav-first-item p{
+    font-size:1em;
+    font-weight:500;
+    padding-top:5px;
+}
+.container-nested{
+    margin-top:5px;
+    margin-left:5px;
+}
+.scriptsLabel{
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+    color: #4e4c4c;    
+    margin-left: -4px;
+    margin-bottom: 10px;
+}
+
+
+.display-none{
+    display:none;
+}
+
+.createScriptStageTitle{
+    width: 90%;
+    display: flex;
+    /* border-bottom: 2px solid lightsteelblue; */
+    margin-top: 40px;
+}
+
+.createScriptStageTitle div{
+    width: 20rem;
+    height:5rem;
+    box-sizing:border-box;
+
+}
+
+.flex-auto{
+    justify-content: space-between;
+    
+}
+.flex-auto p{
+    margin-top:1rem;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+
+.createScriptStageTitle .activeLinkBox{
+        border-top: 6px solid #60cd9b; 	
+        background-color:white;
+        height:6rem;
+}
+/* .createScriptStageTitle div:nth-child(2){
+        border-bottom: 6px solid #d7668d; 	
+        background-color:white;
+}
+.createScriptStageTitle div:nth-child(3){
+        border-bottom: 6px solid #f08080; 	
+        background-color:white;
+} */
+
+.createScriptStageTitle .activeLink{
+    color: black;
+    font-weight: 600;
+}
+
+.createScriptStageTitle .visitedLink{
+    color: white;
+}
+
+.createScriptStageTitle div{
+    margin-right: 30px;
+    /*padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px; */
+}
+
+.createScriptStageTitle a{
+   text-decoration: none;
+   color: #b0b7be;
+   /* font-size: 13px; */
+}
+
+.createScriptTiles {
+    margin-top: 0px;
+    width: 100%;
+    /* height:500px; */
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    /* margin-left: 10px; */
+    background-color:white;
+    padding-bottom:5rem;
+}
+
+/* .createScriptTiles div{
+    text-align: center;
+    width: 20%;
+    border: 1px solid black;
+    background-color: rgb(235, 230, 230);
+    background-color: aliceblue;
+    height: auto;
+    padding: 20px;
+    cursor: pointer;
+} */
+
+/* .createScriptTiles div:last-child, .createScriptTileLabel div:last-child {
+    margin-right: 0;
+} */
+
+.createScriptTiles div.selected{
+    background-color: rgb(88, 104, 104);
+    color:white;
+}
+
+
+.createScriptTileLabel {
+    width: 90%;
+    justify-content: center;
+    display: flex;
+    margin-left: 20px;
+}
+
+.createScriptTileLabel div{
+    text-align: center;
+    width: 20%;
+    height: auto;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgb(53, 50, 50);
+}
+
+
+.has-search .form-control {
+    border-radius: 24px;
+    
+}
+ 
+.has-search .form-control-feedback {
+    top:0.5em;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 1.375rem;
+    /* right: 350px; */
+    right:1.4em;
+    height: 1.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.row-h{
+    height:3rem;
+}
+
+.scriptForm{
+    margin-top: 90px;
+    width:60%;
+}
+
+.scriptForm input{
+    width:100%;
+    font-size: 13px;
+    border:none;
+    border-bottom: 1px solid #e2dede;
+    margin-bottom: 60px;
+}
+.scriptForm input::placeholder{
+    padding-left: 15px;
+    color: #e2dede;
+}
+.font-bold{
+    font-weight:bold;
+    font-size:1em;
+    color:black;
+}
+
+.text-black{
+    color:black;
+}
+.button {
+    background-color: #3b86ff; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button-outline {
+      background-color: white; /* Green */
+      border: 1px solid #3b86ff;
+      color: #3b86ff;
+      padding: 5px 40px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnRight {
+    width: 16%;
+}
+
+.back span, .back .fa{
+    font-size: 13px;
+    cursor: pointer;
+}
+.back a{
+    text-decoration: none;
+    color: gray;
+
+}
+.btn-custom{
+    border-radius: 1.5rem;
+    
+}
+
+.nav-div{
+    display:flex;
+    flex-direction:row;
+    
+}
+.bg-grey{
+    background-color:#f2f2f2;
+}
+.circle-small{
+    
+    width:1.9em;
+    height:1.9em;
+    border-radius:50%;
+    border:1px solid grey;
+    text-align: center;
+    font-size:small;
+}
+.circle-xsmall{
+    margin-top:0.3rem;
+    width:1.5em;
+    height:1.5em;
+    border-radius:50%;
+    border:1px solid grey;
+    text-align:center;
+    font-size:small;
+    vertical-align: middle;
+    align-items: center;
+    align-content:center;
+}
+
+.orgtable thead {
+    
+    background-color:#f4fafd;
+}
+.orgtable tbody tr{
+    box-shadow:1px 1px 1px lightgrey;
+    background-color:white;
+}
+
+.orgtable .actionSuccess{
+    font-weight: bold;
+   font-size: 11px;
+   color: white;
+   background-color: #008000;
+   text-align: center;
+   border-radius:24px;
+   padding-top:0.5em;
+   padding-bottom:0.5em;
+}
+
+.orgtable .actionFail{
+   font-weight: bold;
+   font-size: 11px;
+   color: white;
+   text-align: center;
+   background-color: #ff0000;
+   border-radius:24px;
+   padding-top:0.5em;
+   padding-bottom:0.5em;
+}
+.select-custom{
+    width:70%;
+    border:1px solid grey;
+    border-radius:24px;
+
+}
+.over-y{
+    height:400px;
+    overflow-y:scroll;
+}
+/* custom scroll bar */
+
+.over-y::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+.over-y::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 8px;
+}
+ 
+.over-y::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.bor-bottom{
+    border-bottom:1px solid lightgrey;
+}

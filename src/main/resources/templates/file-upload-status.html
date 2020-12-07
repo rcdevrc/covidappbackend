@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>View csv</title>
+
+    
+    
+     <!-- Bootstrap link -->
+     <link rel="stylesheet" href="./css/bootstrap.min.css">
+     <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link href="./css/all.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/sb-admin-2.css">
+    <link href="./css/viewTracingInfo.css" rel="stylesheet">
+    <link href="./css/topbar_sidebar.css" rel="stylesheet">
+    <link href="./css//header.css">
+    <link href="./scss/charts.scss"> 
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/all.js"></script>
+    <script src="./js/chart-area-demo.js"></script>
+    <script src="./js/Chart.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+     
+     
+     <!-- <script src="./js/popper.min.js"></script> -->
+     <script src="./js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion dashsidebar bgsidebar" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center backgroundlogo"
+                href="#">
+                <embed 
+                    src="https://www.royalcyber.com/wp-content/uploads/2018/04/Royal-Cyber-Logo.svg" width="100"
+                    height="50" type="image/svg+xml"/>
+            </a> -->
+            <li class="nav-item">
+                <div class="nav-first-item">
+                    <p class="text-center">COVID TRACKER</p>
+                </div>
+            </li>
+                        <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link active" href="./healthBoard.html">
+                    <i class="fas fa-th-large"></i>
+                    <span>Health Board</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="./manageAssociates.html">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Manage Associates</span></a>
+            </li>
+
+            <li class="nav-item active">
+                 <a class="nav-link " href="./broadcast.html">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Create Broadcast</span></a>
+            </li>
+
+            <li class="nav-item sidebarlinkactive">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-cube"></i>
+                    <span>View Tracking Info</span></a>
+            </li>
+
+           
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column bgcontent">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <!-- select project -->
+                    <i class="fa fa-bars"></i>
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item -->
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-search"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-crosshairs"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                          <i class="far fa-bell"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="far fa-user"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <span class="small-txt">Hi, John</span>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <div class="container-fluid container-pos">
+
+                    <!-- Page Heading -->
+                    
+
+                    <!-- Content Row -->
+                    <div class="container-nested">
+                        <div class="row ml-5">
+                            <div class="col-10">
+                                <div class="alert alert-danger" role="alert" th:if="${status} == false">
+                                    <strong>Error:</strong>
+                                    <span th:text="${message}"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ml-5">
+                            <div class="col-4">
+                                <a href="./dashboard.html" class="d-flex">
+                                    <i class="fas fa-angle-left mt-1 mr-1"></i> <p>Back</p>
+                                </a>
+                                
+                            </div>
+
+                        </div>
+                       
+                        <div class="cardBox">
+                            <!-- new script body -->
+                            
+                           
+                        <!-- grid for table -->
+                        <div class="createScriptTiles" id="tableDiv">
+                             <div class="row">
+                                 
+                                <div class="col-md-8 ml-3 mt-2">
+                                    <h2>
+                                        Employee Details
+                                    </h2>
+                                </div>
+                             </div>  
+                            
+                            <!-- table  -->
+                            <div class="row justify-content-start ml-2 mr-2">
+
+                            
+                            <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start over-y">
+                             <table class="table orgtable table-striped table-hover" th:if="${status}">
+                                 <thead>
+                                     <tr class="headerRow">
+                                        <th scope="col">#</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone No.</th>
+                                        <th scope="col">Department</th>
+                                        <th scope="col">Location</th>
+                                        
+                                         
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr th:each="employee, i : ${employees}">
+                                        <th scope="row" th:text="${i.index + 1}"></th>
+                                        <td th:text="${employee.FirstName}"></td>
+                                        <td th:text="${employee.LastName}"></td>
+                                        <td th:text="${employee.UserPrincipalName}"></td>
+                                        <td th:text="${employee.MobilePhone}"></td>
+                                        <td th:text="${employee.Department}"></td>
+                                        <td th:text="${employee.Office}"></td>
+                                    </tr>
+                                 </tbody>
+                             </table>
+                             
+                             </div>
+                         </div>
+                         </div>
+
+                     
+                            </div>
+                            
+                            </div>
+                           
+                           
+
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Wrapper -->
+
+</body>
+
+</html>

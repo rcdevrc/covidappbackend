@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Health Board</title>
+
+    
+    
+     <!-- Bootstrap link -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css"> -->
+     
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="../static/css/font-awesome.min.css"> -->
+    
+    <link href="./css/all.css" rel="stylesheet">
+    <!-- <link href="../static/css/all.css" rel="stylesheet"> -->
+    
+    <link href="./css/opensans-fonts.css" rel="stylesheet">
+    <!-- <link href="../static/css/opensans-fonts.css" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="./css/sb-admin-2.css">
+    <!-- <link rel="stylesheet" href="../static/css/sb-admin-2.css"> -->
+    
+    <link href="./css/healthBoard.css" rel="stylesheet">
+    <!-- <link href="../static/css/healthBoard.css" rel="stylesheet"> -->
+    
+    <link href="./css/topbar_sidebar.css" rel="stylesheet">
+    <!-- <link href="../static/css/topbar_sidebar.css" rel="stylesheet"> -->
+    
+    <link href="./css//header.css">
+    <!-- <link href="../static/css//header.css"> -->
+    
+    <link href="./scss/charts.scss"> 
+    <!-- <link href="../static/scss/charts.scss">  -->
+
+    
+
+    <!-- <script src="../static/js/jquery.min.js"></script> -->
+    <script src="./js/jquery.min.js"></script>
+    
+    <script src="./js/popper.min.js"></script>
+    <!-- <script src="../static/js/popper.min.js"></script> -->
+        
+    <script src="./js/all.js"></script>
+    <!-- <script src="../static/js/all.js"></script> -->
+    
+    <script src="./js/Chart.js"></script>
+    <!-- <script src="../static/js/Chart.js"></script>     -->
+     
+     <script src="./js/bootstrap.bundle.min.js"></script>
+     <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+
+        <!-- cdns for datatable -->
+     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+     
+     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
+
+     <!-- canvas script to draw graph -->
+     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion dashsidebar bgsidebar" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            
+            <li class="nav-item">
+                <div class="nav-first-item">
+                    <p class="text-center bg-blue">COVID TRACKER</p>
+                </div>
+            </li>
+                        <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link sidebarlinkactive" href="#">
+                    <i class="fas fa-th-large"></i>
+                    <span>Health Board</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="./dashboard">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Manage Associates</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link " href="./broadcast">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Create Broadcast</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="./viewTracingInfo">
+                    <i class="fas fa-cube"></i>
+                    <span>View Tracking Info</span></a>
+            </li>
+
+           
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column bgcontent">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <!-- select project -->
+                    <span id="ToggleSideMenu">
+                        <i class="fa fa-bars"></i>
+                       </span>
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item -->
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-search"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="fa fa-crosshairs"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                          <i class="far fa-bell"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <i class="far fa-user"></i>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <span class="small-txt">Hi, John</span>
+                        </li>
+                        
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <div class="container-fluid container-pos">
+
+                    <!-- Page Heading -->
+                    
+
+                    <!-- Content Row -->
+                    <div class="container-nested">
+                        
+                        <div class="row w-100">
+                            <!-- <div class="col-md-3 float-right ml-5"> -->
+                                    <div class="showgraph pt-2">
+                                        <button  class="btn btn-outline-success btn-custom bg-white" id="toggleGraph" >Show Graph</button>
+                                        <!-- <input type="button"  class="btn btn-outline-success btn-custom bg-white" id="toggleGraph" value="Show Graph"/> -->
+
+                                    </div>
+                                
+                            <!-- </div> -->
+                        </div>
+                        <!-- Graph Div -->
+                        <div class="cardBox bg-white ml-5" id="graphCard">
+                            <div class="row">
+                                <div class="col-8 col-md-8 col-sm-12">
+                                    <h3>Graph For Empoyees Health Status</h3>
+                                </div>
+                                <div class="col-4 col-md-4 col-sm-12 xxsmall-txt">
+                                    <ul class="statusList">
+                                        <li class="feelingGood">Feeling Good</li>
+                                        <li class="otherIllness">Other Illness</li>
+                                        <li class="covidAffected">Covid Affected</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="createScriptTiles">
+                                <div class="row justify-content-start">
+                                    <div class="col-12 justify-content-start">
+                                        <div id="chartContainer" ></div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                                    
+                                
+                        </div>
+
+                        <!-- tables card div -->
+                        <div class="cardBox" id="tableDivContainer">
+                            <!-- new script body -->
+                            <div class="createScriptStageTitle">
+                                <div class=" activeLinkBox tablinks border-green" onclick="openCity(event, 'Feeling')">
+                                    <a class=" d-flex flex-auto" href="#" >
+                                        <p>Feeling Good</p>  <p class="text-lg">89%</p>
+                                        
+                                    </a>
+                                    <p class="text-xs ml-3">375 out of 400</p> 
+                                </div>
+                                <div class=" tablinks border-maroon" onclick="openCity(event, 'Other')">
+                                    <a class=" d-flex flex-auto " href="#" >
+                                        <p>Other Illness</p>  <p class="text-lg">10%</p>
+                                        
+                                    </a>
+                                    <p class="text-xs ml-3">375 out of 400</p> 
+                                </div>
+                                <div class=" tablinks border-red" onclick="openCity(event, 'Covid')">
+                                    <a class=" d-flex flex-auto " href="#" >
+                                        <p>Covid Affected</p>  <p class="text-lg">01%</p>
+                                        
+                                    </a>
+                                    <p class="text-xs ml-3">375 out of 400</p> 
+                                </div>
+                            </div>
+                   
+                        <div class="createScriptTiles tabcontent pt-4" id="Feeling">
+                               
+                            <!-- table  -->
+                            <div class="row justify-content-start ml-2 mr-2">
+
+                            
+                            <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start">
+                                <!-- table for employees who are feeling good -->
+                             <table class="table orgtable table-hover w-100" id="feelingGoodTable">
+                                 <thead>
+                                     <tr class="headerRow">
+                                         <th>First Name</th>
+                                         <th>Last Name</th>
+                                         <!-- <th>Seating Wing</th> -->
+                                         <th>Department</th>
+                                         <th>Date  &  Time</th>
+                                         
+                                         <th>Location</th>
+                                         <th>Comments</th>
+                                     </tr>
+                                 </thead>
+                                
+                             </table>
+                             
+                             </div>
+                         </div>
+                         </div>
+
+
+
+
+ 
+                         <div class="createScriptTiles tabcontent pt-4" id="Other" style="display: none;" >
+                               
+                            
+                            <!-- table  -->
+                            <div class="row justify-content-start ml-2 mr-2">
+
+                            
+                            <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start">
+                                <!-- Other Illness table  -->
+                             <table class="table table-hover orgtable w-100" id="otherIllnessTable">
+                                 <thead>
+                                     <tr class="headerRow">
+                                        <th>First Name</th>
+                                         <th>Last Name</th>
+                                         <!-- <th>Seating Wing</th> -->
+                                         <th>Department</th>
+                                         <th>Date  &  Time</th>
+                                         
+                                         <th>Location</th>
+                                         <th>Comments</th>
+                                     </tr>
+                                 </thead>
+                              
+                             </table>
+                             
+                             </div>
+                         </div>
+                         </div>
+
+
+
+
+
+
+                         <div  class="createScriptTiles tabcontent pt-4" id="Covid" style="display: none;">
+                               
+                             <!-- table  -->
+                            <div class="row justify-content-start ml-2 mr-2">
+
+                            
+                            <div class="scriptsTable col-xl-12 col-md-12 col-12 justify-content-start">
+                                <!-- Covid Affected Table -->
+                             <table class="table table-hover orgtable w-100" id="covidAffectedTable">
+                                 <thead>
+                                     <tr class="headerRow">
+                                        <th>First Name</th>
+                                         <th>Last Name</th>
+                                         <!-- <th>Seating Wing</th> -->
+                                         <th>Department</th>
+                                         <th>Date  &  Time</th>
+                                         
+                                         <th>Location</th>
+                                         <th>Comments</th>
+                                     </tr>
+                                 </thead>
+                                 <!-- <tbody>
+                                     <tr>
+                                         <td></td>
+                                     </tr>
+                                 </tbody> -->
+                             </table>
+                             
+                             </div>
+                         </div>
+                         </div>
+
+
+
+
+                            </div>
+                            
+                            </div>
+                           
+                           
+
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Wrapper -->
+
+</body>
+<script>
+    $(document).ready(function () {
+            $("#ToggleSideMenu").click(function (e) {
+                e.preventDefault();
+                $("#accordionSidebar").toggleClass("toggled");
+            });
+            //LoadFeelingGoodEmployee(RCEmployeeDetails);
+        });
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" activeLinkBox", "");
+        tablinks[i].className = tablinks[i].className.replace(" border-top", "");
+
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " activeLinkBox  ";
+      console.log(cityName);
+      populateOtherTable(cityName);
+    }
+    function populateOtherTable(tabName){
+        if(tabName === "Other"){
+            populateOtherIllnessTable("Other Illness");
+        }
+        else if(tabName === "Covid"){
+            populateCovidAffectedTable("Covid Affected");
+        }
+        else if(tabName === "Feeling"){
+            populateFeelingGoodTable("Feeling Good");
+        }
+    }
+
+    $(document).ready(function(){
+        populateFeelingGoodTable("Feeling Good");
+        LoadCovidAffectedEmployee("Covid Affected");
+        
+        // $.ajax({
+        //     url:'http://12.208.100.113:8081/api/gethealthboard/',
+        //     //headers: {  'Access-Control-Allow-Origin': 'http://12.208.100.113:8081' },
+        //     type:'GET',
+        //     contentType: "application/x-www-form-urlencoded", 
+        //     data:'Covid Affected',
+        //     crossDomain:true,
+        //     type:'jsonp',
+        //     async:true,
+        //     success:function(response){
+        //         console.log(response);
+        //     },
+        //     error:function(e){
+        //         console.log(e.error);
+        //     }
+        // })
+
+
+        //using headers
+        //  var email = 'abid.khan@royalcyber.com';
+        //  var password = 'Cyber2003';
+        //  var param = encodeURIComponent("Feeling Good");
+        
+        // $.ajax({ 
+            
+        //     url: "http://12.208.100.113:8081/api/gethealthboard/"+param, 
+            
+        //     type: "GET", 
+            
+        //     contentType: "application/json", 
+            
+        //     success: function (response) { 
+        //         if(response == undefined){
+        //             console.log("Get Undefined Response.");
+        //         }
+        //         console.log("response is: ");
+        //         console.log(response); 
+        //         LoadFeelingGoodEmployee(response);
+  
+        //     },
+        //     error:function(error){
+                
+        //         console.log("error is: ");
+        //         console.log(error);
+        //     }
+        // });
+
+
+        // using XMLHttpRequest
+       
+
+
+        //by xhr 
+         //var xhr = new XMLHttpRequest();
+           //  xhr.open("GET", "http://12.208.100.113:8081/api/gethealthboard/"+param, true);
+        //     xhr.withCredentials = true;
+        //     xhr.setRequestHeader("Authorization", 'Basic ' + btoa('abid.khan@royalcyber.com:Cyber2003'));
+        //     xhr.onload = function () {
+        //     console.log(xhr.responseText);
+        // };
+        // xhr.send();
+
+
+        
+        
+        
+        
+        //using script tag
+        // var param = encodeURIComponent("Feeling Good");
+        // function gotData(response){
+        //     debugger;
+        //     console.log(response);
+        // }
+        // let script = document.createElement('script');
+        // script.src = `http://12.208.100.113:8081/api/gethealthboard/`+param+`?callback=gotData`;
+        
+        // document.body.append(script);
+
+
+        //using iframes
+//         <!-- form target -->
+//         <iframe name="iframe"></iframe>
+
+//        a form could be dynamically generated and submited by JavaScript 
+//         <form target="iframe" method="POST" action="http://another.com/…">
+//   ...
+// </form>
+
+
+    });
+
+    function populateFeelingGoodTable(param){
+        var param1 = encodeURIComponent("Feeling Good");
+        
+        $.ajax({ 
+            
+            url: "/api/gethealthboard/"+param1, 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                LoadFeelingGoodEmployee(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+    }
+    function populateOtherIllnessTable(param){
+        
+        $.ajax({ 
+            
+            url: "/api/gethealthboard/"+param, 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                LoadOtherIllnessEmployee(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+    }
+    function populateCovidAffectedTable(param){
+        //var param = encodeURIComponent("Feeling Good");
+        
+        $.ajax({ 
+            
+            url: "/api/gethealthboard/"+param, 
+            
+            type: "GET", 
+            
+            contentType: "application/json", 
+                       
+            success: function (response) { 
+                if(response == undefined){
+                    console.log("Get Undefined Response.");
+                }
+                console.log("response is: ");
+                console.log(response); 
+                
+                LoadCovidAffectedEmployee(response);
+                
+            },
+            error:function(error){
+                
+                console.log("error is: ");
+                console.log(error);
+            }
+        });
+    }
+
+   
+
+
+    //Demo data using for both tables
+    var RCEmployeeDetails = [
+    	{
+    	    "firstName": "Abid",
+    	    "lastName": "Khan",
+    	    "userPrincipalName": "abid.khan@royalcyber.com",
+    	    "mobilePhone": "343489384",
+    	    "department": "Research & Product Development",
+    	    "office": "Karachi",
+    	    "status": "Feeling Good",
+    	    "comments": "Healthy Person",
+    	    "date": "06-28-2020 17:24:00"
+    	},
+    	{
+    	    "firstName": "Arshad",
+    	    "lastName": "Khan",
+    	    "userPrincipalName": "abid.khan@royalcyber.com",
+    	    "mobilePhone": "343489384",
+    	    "department": "Research & Product Development",
+    	    "office": "Karachi",
+    	    "status": "Feeling Good",
+    	    "comments": "Healthy Person",
+    	    "date": "06-28-2020 17:24:00"
+    	}
+    ];
+    
+        
+    
+    function LoadFeelingGoodEmployee(response) {
+     
+    var feelingGoodTableView = $("#feelingGoodTable");
+    
+    //Load data columns
+    if ( $.fn.DataTable.isDataTable('#feelingGoodTable') ) {
+  		$('#feelingGoodTable').DataTable().destroy();
+	}
+    //var responseData = [response];
+     feelingGoodTableView.DataTable ({
+         "data" : response,
+         "columnDefs": [
+            { "searchable": false, "targets": 5 }
+            
+          ],
+         "columns": [
+                { "data": "firstName" },
+                { "data": "lastName" },
+                // { "data": "seatingwing" },
+                { "data": "department" },
+                //{ "data": "mobilePhone" },
+                //{ "data": "userPrincipalName" },
+                {"data":"date"},
+                { "data": "office" },
+                {"data":"comments"}
+            ]
+     });
+    }
+    
+    //function for table of other illness contaning employees
+    function LoadOtherIllnessEmployee(response) {
+     //Load  datatable
+    
+    var otherIllnessTableView = $("#otherIllnessTable");
+
+    //Load data columns
+    if ( $.fn.DataTable.isDataTable('#otherIllnessTable') ) {
+  		$('#otherIllnessTable').DataTable().destroy();
+	}
+    otherIllnessTableView.DataTable ({
+         "data" : response, //can make anther variable for other illness data
+         "columnDefs": [
+         { "searchable": false, "targets": 5 }
+          ],
+         "columns": [
+         { "data": "firstName" },
+                { "data": "lastName" },
+                // { "data": "seatingwing" },
+                { "data": "department" },
+                //{ "data": "mobilePhone" },
+                //{ "data": "userPrincipalName" },
+                {"data":"date"},
+                { "data": "office" },
+                {"data":"comments"}
+            ]
+     });
+    }
+
+    var covidData = [
+    {
+        "firstName": "Aamir",
+        "lastName": "Shahzad",
+        "userPrincipalName": "aamir.shahzad@royalcyber.com",
+        "mobilePhone": "3453522576",
+        "department": "UX/UI",
+        "office": "Karachi",
+        "status": "Covid Affected",
+        "comments": "Employee is identified as Covide affected on 21 June 2020",
+        "date": "06-24-2020 16:24:00"
+    },
+    {
+        "firstName": "Aamir",
+        "lastName": "Aleem",
+        "userPrincipalName": "aamir.aleem@royalcyber.com",
+        "mobilePhone": "3323309010",
+        "department": "UI/UX",
+        "office": "Karachi",
+        "status": "Covid Affected",
+        "comments": "",
+        "date": "07-02-2020 02:30:43"
+    },
+    {
+        "firstName": "Aamir",
+        "lastName": "Aleem",
+        "userPrincipalName": "aamir.aleem@royalcyber.com",
+        "mobilePhone": "3323309010",
+        "department": "UI/UX",
+        "office": "Karachi",
+        "status": "Covid Affected",
+        "comments": "",
+        "date": "07-02-2020 02:30:59"
+    }
+];
+     //function for table of covid affected contaning employees
+     function LoadCovidAffectedEmployee(response) {
+     //Load  datatable
+    
+    var covidAffectedTableView = $("#covidAffectedTable");
+
+    //Load data columns
+    if ( $.fn.DataTable.isDataTable('#covidAffectedTable') ) {
+  		$('#covidAffectedTable').DataTable().destroy();
+	}
+    //var data = jQuery.parseJSON(response);
+    
+    //covidAffectedTableView.destroy();
+    covidAffectedTableView.DataTable ({
+         "data" :response, //can make anther variable for covid affected data
+         "columnDefs": [
+                { "searchable": false, "targets": 5 }
+          ],
+         "columns": [
+                { "data": "firstName" },
+                { "data": "lastName" },
+                // { "data": "seatingwing" },
+                { "data": "department" },
+                //{ "data": "mobilePhone" },
+                //{ "data": "userPrincipalName" },
+                {"data":"date"},
+                { "data": "office" },
+                {"data":"comments"}
+            ]
+     });
+    }
+    
+        // $(function(){
+        //     //load datatable function
+        //     LoadFeelingGoodEmployee();
+        //     LoadOtherIllnessEmployee();
+        //     LoadCovidAffectedEmployee()
+        // });
+
+
+
+    //graph script
+    window.onload = function () {
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme:"light2",
+        animationEnabled: true,
+        title:{
+            text: ""
+        },
+        axisY :{
+            includeZero: false,
+            title: "",
+            suffix: ""
+        },
+        toolTip: {
+            shared: "true"
+        },
+        legend:{
+            cursor:"pointer",
+            itemclick : toggleDataSeries
+        },
+        data: [
+        
+        {
+            type: "line", //data for Graph line for Feeling Good 
+            showInLegend: true,
+            yValueFormatString: "##.00",
+            name: "",//"Feeling Good",
+            dataPoints: [
+                { label: "6th March", y: 0 },
+                { label: "7th March", y:  190 },
+                { label: "8th March", y: 100 },
+                { label: "9th March", y: 10},
+                { label: "10th March", y: 50 }
+                
+            ]
+        },
+        {   //data for Graph line for Other Illness
+            type: "line", 
+            showInLegend: true,
+            yValueFormatString: "##.00",
+            name: "",//"Other Illnesses",
+            dataPoints: [
+                { label: "6th March", y: 0 },
+                { label: "7th March", y:  50},
+                { label: "8th March", y: 190 },
+                { label: "9th March", y: 100 },
+                { label: "10th March", y: 10 }
+                
+            ]
+        },
+        {   //data for Graph Line for Covid Affected
+            type: "line", 
+            showInLegend: true,
+            yValueFormatString: "##.00",
+            name: "",//"Covid Affected",
+            dataPoints: [
+                { label: "6th March", y: 0 },
+                { label: "7th March", y:  50},
+                { label: "8th March", y: 100},
+                { label: "9th March", y: 10 },
+                { label: "10th March", y: 190 }
+                
+            ]
+        },
+        
+    ]
+    });
+    chart.render();
+    
+    function toggleDataSeries(e) {
+        if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+            e.dataSeries.visible = false;
+        } else {
+            e.dataSeries.visible = true;
+        }
+        chart.render();
+    }
+    
+    }
+    //graph script ends here
+
+
+    //code for toggling divs for showing and hidding graph
+    $(function(){
+        
+        $('#graphCard').hide();// hide it initially
+        $('#toggleGraph').on('click', function(){
+        $('div#graphCard, div#tableDivContainer').toggle();
+        // $(this).val( $(this).val() == 'Hide Graph' ? 'Show Graph' : 'Hide Graph' );
+        if($(this).text() == "Show Graph"){
+       $(this).text("Hide Graph");
+    }else{
+       $(this).text("Show Graph");
+    }
+  });
+});
+    </script>
+
+</html> 
